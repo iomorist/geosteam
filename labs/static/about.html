@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo Steam — О проекте | Лаб. 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .about-hero { border-left: 4px solid #66c0f4; padding-left: 16px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">🌍 Geo Steam</a>
+    <button class="nav-toggle" type="button">☰ Меню</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html" class="active">О проекте</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="auth.html">Регистрация</a></li>
+        <li><a href="feedback.html">Обратная связь</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-wrapper">
+    <h1>О проекте Geo Steam</h1>
+    <h2>Цели и задачи</h2>
+
+    <nav class="anchor-nav">
+      <a href="#mission">Миссия</a>
+      <a href="#stack">Стек</a>
+      <a href="#labs">Лабораторные</a>
+    </nav>
+
+    <section id="mission" class="content-block animated-card">
+      <div class="about-hero">
+        <h3>Миссия</h3>
+        <p>Создать <strong>удобный инструмент</strong> для анализа географических перемещений
+        пользователя с <em>наглядной визуализацией</em> данных.</p>
+      </div>
+    </section>
+
+    <section id="stack" class="content-block">
+      <h3>Технологический стек</h3>
+      <ol>
+        <li><strong>Backend</strong> — Express.js, SQLite, bcrypt</li>
+        <li><strong>Frontend</strong> — React 18, TypeScript</li>
+        <li><strong>DevOps</strong> — Docker, микросервисы</li>
+      </ol>
+      <ul>
+        <li>REST API в формате JSON</li>
+        <li>WebSocket для real-time обновлений</li>
+        <li>Telegram Bot API для уведомлений</li>
+      </ul>
+    </section>
+
+    <section id="labs" class="content-block">
+      <h3>Лабораторные работы</h3>
+      <p><span>Курс веб-разработки</span> — от HTML/CSS до Docker.</p>
+      <br/>
+      <div class="highlight-box">
+        <p>1. HTML/CSS портал (эта страница)</p>
+        <p>2. Формы и валидация → <a href="auth.html">auth.html</a></p>
+        <p>3. REST API + Telegram → <a href="feedback.html">feedback.html</a></p>
+        <p>4–7. MVC, БД, Real-time, Docker → React-приложение</p>
+      </div>
+    </section>
+
+    <p><a href="index.html">← На главную</a></p>
+  </div>
+
+  <footer>
+    <p>Geo Steam | Лабораторная №1 — страница «О проекте»</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

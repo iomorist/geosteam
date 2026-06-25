@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo Steam — Обратная связь | Лаб. 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">🌍 Geo Steam</a>
+    <button class="nav-toggle" type="button">☰ Меню</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="auth.html">Регистрация</a></li>
+        <li><a href="feedback.html" class="active">Обратная связь</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-wrapper">
+    <h1>Обратная связь</h1>
+    <h2>Лабораторная №3: REST API + Telegram</h2>
+
+    <div class="content-block form-lab animated-card">
+      <p>Сообщение будет отправлено на сервер (<code>POST /api/feedback</code>)
+      и продублировано в <strong>Telegram</strong> через Bot API.</p>
+      <br/>
+
+      <form id="feedback-form">
+        <div class="form-row">
+          <label for="fb-name">Ваше имя *</label>
+          <input type="text" id="fb-name" name="name" required placeholder="Иван">
+        </div>
+        <div class="form-row">
+          <label for="fb-email">Email *</label>
+          <input type="email" id="fb-email" name="email" required placeholder="user@mail.ru">
+        </div>
+        <div class="form-row">
+          <label for="fb-message">Сообщение *</label>
+          <textarea id="fb-message" name="message" required rows="5"
+                    style="width:100%;padding:10px;border-radius:6px;border:1px solid #5a6880;background:rgba(255,255,255,0.06);color:#eef2f8;"
+                    placeholder="Ваше сообщение..."></textarea>
+        </div>
+        <button type="submit">Отправить</button>
+      </form>
+      <p id="feedback-status" style="margin-top:16px;"></p>
+    </div>
+
+    <p><a href="index.html">← На главную</a></p>
+  </div>
+
+  <footer>
+    <p>Geo Steam | Лабораторная №3 — Telegram Bot API</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('feedback-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var status = document.getElementById('feedback-status');
+      status.textContent = 'Отправка...';
+      status.style.color = '#66c0f4';
+
+      try {
+        var res = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: document.getElementById('fb-name').value,
+            email: document.getElementById('fb-email').value,
+            message: document.getElementById('fb-message').value
+          })
+        });
+        var data = await res.json();
+        if (res.ok) {
+          status.textContent = 'Сообщение отправлено!' + (data.telegramSent ? ' Telegram: OK' : ' (Telegram не настроен)');
+          status.style.color = '#4bb34b';
+          e.target.reset();
+        } else {
+          status.textContent = data.error || 'Ошибка отправки';
+          status.style.color = '#c0392b';
+        }
+      } catch (err) {
+        status.textContent = 'Сервер недоступен. Запустите: npm run dev';
+        status.style.color = '#c0392b';
+      }
+    });
+  </script>
+</body>
+</html>

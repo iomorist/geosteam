@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo Steam — Главная | Лаб. 1</title>
+  <!-- 2.5) Внешний шрифт через ссылку (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 2.1) Внешний файл стилей .css -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- 2.1) Внутренние стили в header -->
+  <style>
+    h1 { font-family: 'Roboto', Arial, sans-serif; }
+    .hero-title { font-size: 2.2rem; color: #66c0f4; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <!-- 2.1) Inline-стиль -->
+    <a href="index.html" class="logo" style="text-decoration: none;">🌍 Geo Steam</a>
+    <button class="nav-toggle" type="button">☰ Меню</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Главная</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="auth.html">Регистрация</a></li>
+        <li><a href="feedback.html">Обратная связь</a></li>
+        <li><a href="http://localhost:3000" target="_blank">React-приложение</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-wrapper">
+    <!-- 1.1) Заголовки h1–h6 -->
+    <h1 class="hero-title">Geo Steam — Анализ геолокации</h1>
+    <h2>Портал отслеживания путешествий</h2>
+    <h3>Лабораторная работа №1: HTML</h3>
+    <h4>Структура веб-страницы</h4>
+    <h5>Теги и навигация</h5>
+    <h6>Минимальный пример</h6>
+
+    <!-- 1.8) Навигация по странице (якоря) -->
+    <nav class="anchor-nav">
+      <strong>На этой странице:</strong>
+      <a href="#intro">Введение</a>
+      <a href="#features">Возможности</a>
+      <a href="#lists">Списки</a>
+      <a href="#media">Медиа</a>
+    </nav>
+
+    <section id="intro" class="content-block animated-card">
+      <!-- 1.2) p, span, div -->
+      <p>
+        <span>Geo Steam</span> — веб-приложение для отслеживания и анализа
+        <strong>геолокации</strong> пользователя в стиле Steam.
+      </p>
+      <div class="highlight-box">
+        <!-- 1.3) em, strong -->
+        <p>Приложение позволяет <em>автоматически определять</em> местоположение,
+        собирать <strong>статистику по странам и городам</strong> и визуализировать данные.</p>
+        <!-- 1.4) br -->
+        Первая строка описания.<br/>
+        Вторая строка после разрыва.
+      </div>
+    </section>
+
+    <section id="features" class="content-block animated-card">
+      <h2>Возможности портала</h2>
+      <!-- 1.5) Нумерованный и ненумерованный списки -->
+      <ol>
+        <li>Отслеживание геолокации в реальном времени</li>
+        <li>Статистика по странам и городам</li>
+        <li>История всех записей местоположения</li>
+      </ol>
+      <ul>
+        <li>Графики и диаграммы</li>
+        <li>Интерфейс в стиле Steam</li>
+        <li>Адаптивный дизайн</li>
+      </ul>
+    </section>
+
+    <section id="lists" class="content-block">
+      <h2>Технологии</h2>
+      <div>
+        <p>Backend: <span>Node.js, Express, SQLite</span></p>
+        <p>Frontend: <span>React, TypeScript, Recharts</span></p>
+      </div>
+    </section>
+
+    <section id="media" class="content-block">
+      <h2>Медиа-контент</h2>
+      <!-- 1.6) Изображения -->
+      <div class="media-grid">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Equirectangular_projection_SW.jpg/320px-Equirectangular_projection_SW.jpg"
+             alt="Карта мира" width="200" height="140">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Globe_icon.svg/120px-Globe_icon.svg.png"
+             alt="Глобус" width="120" height="120">
+      </div>
+      <!-- 1.6) Видео -->
+      <video controls width="480" poster="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Equirectangular_projection_SW.jpg/320px-Equirectangular_projection_SW.jpg">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+    </section>
+
+    <!-- 1.7) Якорные теги, 1.9) переход на другие страницы -->
+    <p>
+      <a href="about.html">Подробнее о проекте →</a> |
+      <a href="gallery.html">Галерея →</a> |
+      <a href="auth.html">Форма регистрации (Лаб. 2) →</a>
+    </p>
+  </div>
+
+  <footer>
+    <p>Geo Steam &copy; 2026 | Лабораторная работа №1 — HTML/CSS</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

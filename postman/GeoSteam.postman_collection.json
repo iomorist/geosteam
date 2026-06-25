@@ -1,0 +1,146 @@
+{
+  "info": {
+    "name": "Geo Steam API",
+    "description": "Лабораторная №3: коллекция REST-запросов для Postman",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"secret123\",\n  \"firstName\": \"Иван\",\n  \"lastName\": \"Иванов\"\n}"
+            },
+            "url": "{{baseUrl}}/api/auth/register"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"secret123\"\n}"
+            },
+            "url": "{{baseUrl}}/api/auth/login"
+          }
+        },
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/me"
+          }
+        },
+        {
+          "name": "Demo Password Hash (Лаб. 5)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"myPassword123\"\n}"
+            },
+            "url": "{{baseUrl}}/api/auth/demo-hash"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Feedback (Лаб. 3 — Telegram)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Иван\",\n  \"email\": \"ivan@mail.ru\",\n  \"message\": \"Тестовое сообщение из Postman\"\n}"
+        },
+        "url": "{{baseUrl}}/api/feedback"
+      }
+    },
+    {
+      "name": "Telegram Bot API (прямой вызов)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"chat_id\": \"YOUR_CHAT_ID\",\n  \"text\": \"Тест из Postman\"\n}"
+        },
+        "url": "https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage"
+      }
+    },
+    {
+      "name": "Comments (Лаб. 6 — JSON)",
+      "item": [
+        {
+          "name": "List Comments",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/comments"
+          }
+        },
+        {
+          "name": "Create Comment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"Комментарий из Postman\"\n}"
+            },
+            "url": "{{baseUrl}}/api/comments"
+          }
+        },
+        {
+          "name": "Like Comment",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/comments/1/like"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Location",
+      "item": [
+        {
+          "name": "Update Location",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"latitude\": 55.7558,\n  \"longitude\": 37.6173,\n  \"country\": \"Russia\",\n  \"city\": \"Moscow\"\n}"
+            },
+            "url": "{{baseUrl}}/api/location/update"
+          }
+        },
+        {
+          "name": "Country Stats",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/stats/countries"
+          }
+        }
+      ]
+    }
+  ]
+}

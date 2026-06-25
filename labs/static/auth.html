@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo Steam — Регистрация | Лаб. 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">🌍 Geo Steam</a>
+    <button class="nav-toggle" type="button">☰ Меню</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="auth.html" class="active">Регистрация</a></li>
+        <li><a href="feedback.html">Обратная связь</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-wrapper">
+    <h1>Регистрация</h1>
+    <h2>Лабораторная №2: формы и валидация</h2>
+
+    <div class="content-block form-lab animated-card">
+      <p>
+        <strong>CSS-валидация:</strong> поля подсвечиваются при фокусе (<code>:focus</code>),
+        корректности (<code>:valid</code>) и ошибках (<code>:invalid</code>).
+        Обязательные поля — <code>:required</code>, опциональные — <code>:optional</code>.
+      </p>
+      <br/>
+
+      <form id="register-form" novalidate>
+        <div class="form-row">
+          <label for="firstName">Имя *</label>
+          <input type="text" id="firstName" name="firstName" required
+                 placeholder="Иван" pattern="[A-ZА-ЯЁ][a-zа-яё]+">
+          <div class="field-hint">Только буквы, одна заглавная в начале</div>
+          <div class="error-msg" id="firstName-error"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="lastName">Фамилия *</label>
+          <input type="text" id="lastName" name="lastName" required
+                 placeholder="Иванов" pattern="[A-ZА-ЯЁ][a-zа-яё]+">
+          <div class="field-hint">Только буквы, одна заглавная в начале</div>
+          <div class="error-msg" id="lastName-error"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Телефон *</label>
+          <input type="tel" id="phone" name="phone" required
+                 placeholder="+7 (999) 123-45-67">
+          <div class="field-hint">Маска: +7 (XXX) XXX-XX-XX</div>
+          <div class="error-msg" id="phone-error"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="age">Возраст *</label>
+          <input type="number" id="age" name="age" required min="14" max="120"
+                 placeholder="18">
+          <div class="field-hint">От 14 до 120</div>
+          <div class="error-msg" id="age-error"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required
+                 placeholder="user@example.com">
+          <div class="error-msg" id="email-error"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="password">Пароль *</label>
+          <input type="password" id="password" name="password" required
+                 minlength="6" placeholder="Минимум 6 символов">
+          <div class="error-msg" id="password-error"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="nickname">Никнейм (опционально)</label>
+          <input type="text" id="nickname" name="nickname"
+                 placeholder="Необязательное поле">
+        </div>
+
+        <button type="submit" disabled>Зарегистрироваться</button>
+      </form>
+
+      <p id="form-status" style="margin-top: 16px;"></p>
+    </div>
+
+    <p><a href="index.html">← На главную</a></p>
+  </div>
+
+  <footer>
+    <p>Geo Steam | Лабораторная №2 — CSS + JS валидация</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+</body>
+</html>

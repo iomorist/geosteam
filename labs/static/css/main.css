@@ -1,0 +1,303 @@
+/* Лабораторная 1–2: внешний файл стилей (.css) — требование 2.1 */
+
+/* 2.5) Локальный шрифт */
+@font-face {
+  font-family: 'GeoSteamLocal';
+  src: local('Segoe UI'), local('Arial');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 2.3) Селектор по тегу */
+body {
+  /* 2.5) Web-safe font stack */
+  font-family: 'GeoSteamLocal', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #1b2838;
+  color: #c7d5e0;
+  line-height: 1.6;
+}
+
+/* 2.3) Селектор по классу */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+}
+
+/* 2.4) Наследование: дочерние элементы наследуют color от .content-block */
+.content-block {
+  color: #dbe2ef;
+  background: #2a475e;
+  border: 2px solid #66c0f4;
+  margin: 16px 0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* 2.4) Каскадирование: класс переопределяет тег */
+.content-block h2 {
+  color: #66c0f4;
+  margin-top: 0;
+}
+
+.highlight-box {
+  background: #171a21;
+  border: 1px dashed #8f98a0;
+  margin: 12px;
+  padding: 16px;
+}
+
+/* 2.7) Фиксированное навигационное меню */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #171a21, #2a475e);
+  border-bottom: 2px solid #66c0f4;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.site-header .logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #66c0f4;
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: #66c0f4;
+  color: #171a21;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.main-nav a {
+  color: #c7d5e0;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background: #66c0f4;
+  color: #171a21;
+}
+
+/* 2.6) CSS-анимация */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-card {
+  animation: fadeInUp 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animated-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(102, 192, 244, 0.3);
+}
+
+/* 2.8) Слайдшоу */
+.slideshow {
+  position: relative;
+  max-width: 700px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid #66c0f4;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide.active {
+  display: block;
+  animation: fadeInUp 0.5s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.slideshow-controls {
+  text-align: center;
+  padding: 10px;
+  background: #171a21;
+}
+
+.slideshow-controls button {
+  background: #66c0f4;
+  border: none;
+  padding: 6px 16px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #171a21;
+  font-weight: bold;
+}
+
+.media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.media-grid img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border: 2px solid #8f98a0;
+  border-radius: 6px;
+}
+
+video {
+  max-width: 100%;
+  border: 2px solid #66c0f4;
+  border-radius: 8px;
+}
+
+.anchor-nav {
+  background: #171a21;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.anchor-nav a {
+  color: #66c0f4;
+  margin-right: 16px;
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  margin-top: 40px;
+  border-top: 1px solid #2a475e;
+  color: #8f98a0;
+}
+
+/* Лабораторная 2: CSS-псевдоклассы валидации форм */
+.form-lab input:required {
+  border-left: 3px solid #66c0f4;
+}
+
+.form-lab input:optional {
+  border-left: 3px solid #8f98a0;
+}
+
+.form-lab input:focus {
+  outline: 2px solid #66c0f4;
+  background: rgba(102, 192, 244, 0.1);
+}
+
+.form-lab input:valid:not(:placeholder-shown) {
+  border-color: #4bb34b;
+  background: rgba(75, 179, 75, 0.1);
+}
+
+.form-lab input:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: #c0392b;
+  background: rgba(192, 57, 43, 0.1);
+}
+
+.form-lab .field-hint {
+  font-size: 0.85rem;
+  color: #8f98a0;
+  margin-top: 4px;
+}
+
+.form-lab .error-msg {
+  color: #c0392b;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+.form-lab label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.form-lab .form-row {
+  margin-bottom: 16px;
+}
+
+.form-lab button[type="submit"] {
+  background: #66c0f4;
+  color: #171a21;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-lab button[type="submit"]:hover {
+  background: #4a9fd4;
+}
+
+.form-lab button[type="submit"]:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #171a21;
+    border-bottom: 2px solid #66c0f4;
+  }
+
+  .main-nav.open {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    padding: 12px;
+  }
+}
